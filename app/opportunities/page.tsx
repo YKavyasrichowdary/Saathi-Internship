@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { AppShell } from "@/components/AppShell";
 import OpportunityFilters from "@/components/opportunity/OpportunityFilters";
 import OpportunityGrid from "@/components/opportunity/OpportunityGrid";
@@ -52,7 +53,9 @@ export default async function OpportunitiesPage({ searchParams }: Props) {
       subtitle="Scholarships, internships, hackathons and more."
     >
       <div className="space-y-6">
-        <OpportunitySearch initialQuery={q} />
+        <Suspense fallback={null}>
+          <OpportunitySearch initialQuery={q} />
+        </Suspense>
         <OpportunityFilters />
         <OpportunityGrid opportunities={opportunities} search={q} />
       </div>
