@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, type ReactNode } from "react";
 
 import { Search, SlidersHorizontal } from "lucide-react";
+import OpportunitySearch from "@/components/opportunity/OpportunitySearch";
 
 import { AppShell } from "@/components/AppShell";
 
@@ -60,23 +61,8 @@ export default function OpportunitiesLayout({
       title="Opportunities"
       subtitle="204 opportunities open right now. 38 match your profile."
     >
-      {/* Search */}
-
-      <div className="mb-4 flex flex-wrap items-center gap-3">
-        <div className="flex flex-1 items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5">
-          <Search className="h-4 w-4 text-muted-foreground" />
-
-          <input
-            placeholder="Search opportunities..."
-            className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-          />
-        </div>
-
-        <button className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 text-sm font-medium">
-          <SlidersHorizontal className="h-4 w-4" />
-
-          Filters
-        </button>
+      <div className="mb-4">
+        <OpportunitySearch />
       </div>
 
       {/* Tabs */}
