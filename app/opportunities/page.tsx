@@ -56,7 +56,9 @@ export default async function OpportunitiesPage({ searchParams }: Props) {
         <Suspense fallback={null}>
           <OpportunitySearch initialQuery={q} />
         </Suspense>
-        <OpportunityFilters />
+        <Suspense fallback={null}>
+          <OpportunityFilters />
+        </Suspense>
         <OpportunityGrid opportunities={opportunities} search={q} />
       </div>
     </AppShell>
