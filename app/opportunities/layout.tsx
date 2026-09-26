@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useEffect, type ReactNode } from "react";
@@ -62,7 +63,9 @@ export default function OpportunitiesLayout({
       subtitle="204 opportunities open right now. 38 match your profile."
     >
       <div className="mb-4">
-        <OpportunitySearch />
+        <Suspense fallback={null}>
+          <OpportunitySearch />
+        </Suspense>
       </div>
 
       {/* Tabs */}
