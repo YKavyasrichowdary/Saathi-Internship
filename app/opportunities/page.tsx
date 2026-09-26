@@ -18,24 +18,11 @@ type Props = {
 };
 
 export default async function OpportunitiesPage({ searchParams }: Props) {
-  const {
-    q,
-    type,
-    mode,
-    source,
-    educationLevel,
-    featured,
-    sort,
-  } = await searchParams;
+  const { q, type, mode, source, educationLevel, featured, sort } =
+    await searchParams;
 
   const opportunities =
-    q ||
-    type ||
-    mode ||
-    source ||
-    educationLevel ||
-    featured ||
-    sort
+    q || type || mode || source || educationLevel || featured || sort
       ? await opportunityService.search({
           q,
           type,
